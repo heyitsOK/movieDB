@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign In/Up</title>
+	<link rel="stylesheet" type="text/css" href="../styling/styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Lato&family=Quicksand:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div id="navwrapper">
+		<ul id="navbar">
+			<li class="liNavBar"><a href="/" class="aNavBar">Home</a></li>
+			<li class="liNavBar"><a href="/movies" class="aNavBar">Movies</a></li>
+			<li class="liNavBar"><a href="/signinup.html" class="aNavBar">Sign In/Up</a></li>
+			<li class="liNavBar"><a href="/user/self" class="aNavBar">Profile</a></li>
+			<li class="liNavBar"><a href="/contribute.html" class="aNavBar">Contribute</a></li>
+
+		</ul>
+	</div>
+    <h1 style="text-align: center;">PLEASE ENTER A USERNAME AND PASSWORD</h1>
+	<div id="signinup">
+        <form id="signinform" action="/user/login" method="POST">
+			<input type="text" id="username" name="username" placeholder="USERNAME"><br>
+			<input type="password" id="password" name="password" placeholder="PASSWORD"><br>
+			<button type="button" style="margin: 5px;" onclick="login()">Sign In</button>
+			<button type="button" style="margin: 5px;" onclick="signup()">Sign Up</button>
+		</form>
+    </div>
+	<script src="/js/signinup.js"></script>
+</body>
+</html>

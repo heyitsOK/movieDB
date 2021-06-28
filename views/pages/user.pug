@@ -1,0 +1,62 @@
+html 
+    head 
+        include ../partials/headlinks.pug
+        title #{user.name}
+    body 
+        include ../partials/navbar.pug
+        script
+            include ../public/js/profile.js
+        div(style="display:flex; justify-content:center; align-items:center;")
+            h1(style="margin:15; display: inline-block;") <strong>#{user.name}'s profile</strong>
+            if currentUser == "guest"
+                button(type="button" style="float: right;" onclick="authenticateAlert()") Follow
+            else if currentUser != "guest" && !currentUser.userFollowing.includes(user.name)
+                button(type="button" style="float: right;" onclick='followUser("' + user.name + '")') Follow
+            else if currentUser != "guest" && currentUser.userFollowing.includes(user.name)
+                button(type="button" style="float: right;" onclick='unfollowUser("' + user.name + '")') Unfollow
+        div(style="display: flex; justify-content:space-evenly")
+            div(class="profilecontent")
+                h2 People #{user.name} Follows:
+                if user.following.length == 0
+                    p #{user.name} doesn't follow any people.
+                each person in user.following
+                    if currentUser == "guest"
+                        button(type="button" style="margin-right: 3px;" onclick="authenticateAlert()") Follow
+                    else if currentUser != "guest" && !currentUser.following.includes(person)
+                        button(type="button" style="margin-right: 3px;" onclick='followPerson("' + person + '")') Follow
+                    else if currentUser != "guest" && currentUser.following.includes(person)
+                        button(type="button" style="margin-right: 3px;" onclick='unfollowPerson("' + person + '")') Unfollow
+                    a(href="/people/" + person) #{person}
+                    br
+            div(class="profilecontent")
+                h2 Users #{user.name} Follows:
+                if user.userFollowing.length == 0
+                    p #{user.name} doesn't follow any users.
+                each profile in user.userFollowing 
+                    if currentUser == "guest"
+                        button(type="button" style="margin-right: 3px;" onclick="authenticateAlert()") Follow
+                    else if currentUser.name == profile 
+                        a(href="/user/self") #[button(type="button" style="margin-right: 3px;") View]
+                    else if currentUser != "guest" && !currentUser.userFollowing.includes(profile)
+                        button(type="button" style="margin-right: 3px;" onclick='followUser("' + profile + '")') Follow
+                    else if currentUser != "guest" && currentUser.userFollowing.includes(profile)
+                        button(type="button" style="margin-right: 3px;" onclick='unfollowUser("' + profile + '")') Unfollow
+                    a(href="/user/" + profile) #{profile}
+                    br
+            div(class="profilecontent")
+                h2 Movies #{user.name} Has Watched: 
+                if user.watchedMovies.length == 0
+                    p #{user.name} hasn't added any movies.
+                each movie in user.watchedMovies
+                    a(href="/movies/" + movie.id) #{movie.Title}
+                    br
+            div(class="profilecontent")
+                h2 Reviews written by #{user.name}
+                if reviews.length == 0
+                    p #{user.name} hasn't reviewed any movies.
+                each review in reviews  
+                    div#moviereviews
+                        p #[a(href="/user/" + review.author.name) <strong>#{review.author.name}</strong>] scored #[a(href="/movies/" + review.mID) <strong>#{review.movie.Title}</strong>] a #{review.score}/10
+                        if review.reviewSummary != ""
+                            p "#{review.reviewSummary}"
+                        a(href="/reviews/" + review._id) View details

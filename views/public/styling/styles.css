@@ -1,0 +1,242 @@
+/*==> some inspiration and code credited to w3schools.com/css <==*/
+/* in particular navbar styling and code credited to w3schools.com */
+
+* {
+	font-family: "Lato", sans-serif;
+}
+
+html {
+	background-color: rgb(216, 216, 216);
+}
+
+h1, h2 {
+	font-family: 'Quicksand', sans-serif;
+}
+
+button {
+	padding: 5px;
+	background-color: black;
+	color: white;
+	border: 3px solid black;
+	transition-duration: 0.4s;
+	border-radius: 5px;
+}
+
+button:hover {
+	background-color: rgb(216, 216, 216);
+	color: black;
+	border: 3px solid black;
+}
+
+#navwrapper {
+	text-align: center;
+}
+
+#navbar {
+	list-style-type: none;
+	margin: 20px;
+	padding: 10px;
+	overflow: hidden;
+	background-color: #333;
+	font-size: 25px;
+	border-radius: 15px;
+}
+
+.liNavBar {
+	display: inline-block;
+	text-align: center;
+}
+
+.liNavBar .aNavBar {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	font-weight: bold;
+}
+
+li.liNavBar:hover, a.aNavBar:hover {
+	background-color: #111;
+}
+
+#main {
+	text-align: center;
+	margin: 0;
+	position: absolute;
+	top: 45%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-family: 'Quicksand', sans-serif;
+}
+
+#main input {
+	margin: 3px;
+	width: 500px;
+	height: 45px;
+	font-size: 25px;
+	text-align: center;
+	background-color: rgb(59, 59, 59);
+	color: #fff;
+	border: 5px solid black;
+}
+
+#advancedsearch {
+	text-align: center;
+}
+
+#advancedsearch input {
+	margin: 3px;
+	width: 400px;
+	height: 45px;
+	font-size: 20px;
+	background-color: rgb(59, 59, 59);
+	color: #fff;
+	border: 5px solid black;
+	text-align: center;
+}
+
+#movies {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	justify-content: center;
+}
+
+.movieLink img {
+	width: 150px;
+}
+
+.movieLink {
+	text-align: center;
+	margin: 15px;
+	border: 5px solid #111;
+	padding: 5px;
+	padding-bottom: 10px;
+	width: 180;
+}
+
+#pagination button {
+	margin: 5px;
+	width: 100px;
+}
+
+#pagination {
+	text-align: center;
+}
+
+#movie {
+	display: flex;
+	justify-content: center;
+}
+
+#cover {
+	border: 5px solid;
+	width: 300px; 
+	height: 450px; 
+	margin: 5px;
+	background-color: #fff;
+
+}
+
+#movieinfo {
+	float: right; 
+	border: 5px solid; 
+	height: 450px; 
+	width: 570px;
+	margin: 5px;
+	padding-left: 20px;
+	padding-right: 20px;
+	position: relative;
+	background-color: #fff;
+}
+
+#bottom {
+	position:absolute;
+	bottom: 0;
+	left: 5;
+}
+
+#reviews {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+#moviereviews {
+	border: solid; 
+	text-align: center;
+	padding: 15px; 
+	width: 890px; 
+	margin: 10px;
+	background-color: #fff;
+}
+
+#userreview {
+	border: solid; 
+	padding: 25px; 
+	width: 555px; 
+	margin: 10px;
+}
+
+#signinup {
+	/*min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	max-width: 175vh;*/
+	display: table;
+	width: 100%;
+}
+
+#signinform {
+	display: table-cell;
+	text-align: center;
+	vertical-align:middle;
+	width: 750px;
+	height: 135px;
+}
+
+#signinup label {
+	margin: 3px;
+}
+
+#signinup input {
+	margin: 3px;
+	width: 700px;
+	height: 35px;
+	font-size: 25px;
+	text-align: center;
+	background-color: rgb(59, 59, 59);
+	color: #fff;
+	border: 5px solid black;
+}
+
+#signinup button {
+	margin: 3px;
+}
+
+.profilecontent {
+	border: 5px solid black;
+	padding: 20px;
+	margin: 5px;
+	text-align: center;
+}
+
+.profilecontent h2 {
+	margin-top: -5px;
+}
+
+#contribute input[type=search] {
+	margin: 3px;
+	width: 400px;
+	height: 45px;
+	font-size: 20px;
+	background-color: rgb(59, 59, 59);
+	color: #fff;
+	border: 5px solid black;
+}
+
+#contribute input[type=textbox] {
+	font-weight: bold;
+}

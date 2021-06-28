@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Contribute</title>
+	<link rel="stylesheet" type="text/css" href="../styling/styles.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Lato&family=Quicksand:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div id="navwrapper">
+        <ul id="navbar">
+            <li class="liNavBar"><a href="/" class="aNavBar">Home</a></li>
+            <li class="liNavBar"><a href="/movies" class="aNavBar">Movies</a></li>
+            <li class="liNavBar"><a href="/signinup.html" class="aNavBar">Sign In/Up</a></li>
+            <li class="liNavBar"><a href="/user/self" class="aNavBar">Profile</a></li>
+            <li class="liNavBar"><a href="/contribute.html" class="aNavBar">Contribute</a></li>
+
+        </ul>
+    </div>
+	<div id="contribute">
+	<h1>Add a Person</h1>
+    <form>
+        <input type="search" id="name" name="name" placeholder="Name" style="margin: 10px;"/><br>
+        <button type="button" onclick="addPerson()">Add person</button>
+    </form>
+    <h1>Add a Movie</h1>
+	<form id="contribute">
+        <input type="search" id="title" placeholder="Title*" style="margin: 10px;"/><br>
+        <input type="search" id="runtime" placeholder="Runtime*" style="margin: 10px;"/><br>
+        <input type="search" id="genre" placeholder="Genres*" style="margin: 10px;"/><br>
+        <input type="search" id="releaseyear" placeholder="Release Year*" style="margin: 10px;"/><br>
+        <input type="search" id="rating" placeholder="Rating" style="margin: 10px;"/><br>
+        <input type="search" id="releasedate" placeholder="Release Date" style="margin: 10px;"/><br>
+        <input type="search" id="plot" placeholder="Plot*" style="margin: 10px;"/><br>
+        <input type="search" id="awards" placeholder="Awards" style="margin: 10px;"/><br>
+        <input type="search" id="poster" placeholder="Poster Link*" style="margin: 10px;"/><br>
+        <input type="search" id="writers" placeholder="Writers*" style="margin: 10px;"/>
+        <button type="button" style="margin-right: 10px;" onclick='searchPeople("writers")'> Search </button>
+        <br>
+        <div style="margin-left: 10px;" id="writersSearch">
+            
+        </div>
+        <p id="writersList" style="margin-left: 10px;"></p>
+        <input type="search" id="directors" placeholder="Directors*" style="margin: 10px;"/>
+        <button type="button" onclick='searchPeople("directors")'> Search </button><br>
+        <div style="margin-left: 10px;" id="directorsSearch">
+            
+        </div>
+        <p id="directorsList" style="margin-left: 10px;"></p>
+        <input type="search" id="actors" placeholder="Actors*" style="margin: 10px;"/>
+        <button type="button" onclick='searchPeople("actors")'> Search </button><br>
+        <div style="margin-left: 10px;" id="actorsSearch">
+            
+        </div>
+        <p id="actorsList" style="margin-left: 10px;"></p>
+        <button type="button" onclick="addMovie()">Add movie</button>
+    </form>
+	</div>
+    <script src="/js/contribute.js"></script>
+</body>
+</html>

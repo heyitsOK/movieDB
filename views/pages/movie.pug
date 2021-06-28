@@ -1,0 +1,101 @@
+doctype html
+html
+	head
+		include ../partials/headlinks.pug
+		title #{movie.Title}
+	body 
+		script.
+			let mID = "#{movie._id}";
+			let mTitle = "#{movie.Title}";
+		script 
+			include ../public/js/movie.js
+			include ../public/js/profile.js
+			//^^adding profile.js to use removeMovie() function. 
+		include ../partials/navbar.pug
+		h1(style="text-align:center;") #{movie.Title} (#{movie.Year})
+		div#movie
+			div#cover
+				a(href=movie.Poster target="_blank") #[img(src=movie.Poster style="max-width:100%; max-height:100%;")]
+			div#movieinfo
+				p <strong>Runtime:</strong> #{movie.Runtime}
+				p <strong>Released:</strong> #{movie.Released}
+				p <strong> Director(s):</strong> 
+					each director in movie.Director	
+						a(href="/people/" + director) #{director}
+						. 
+							, 
+				p <strong> Writer(s):</strong> 
+					each writer in movie.Writer	
+						a(href="/people/" + writer) #{writer}
+						. 
+							, 
+				p <strong> Actor(s):</strong> 
+					each actor in movie.Actors	
+						a(href="/people/" + actor) #{actor}
+						. 
+							, 
+				p <strong> Genre(s):</strong> 
+					each genre in movie.Genre	
+						a(href="/movies?genre=" + genre) #{genre}
+						. 
+							, 
+				p <strong> Plot:</strong> #{movie.Plot}
+				p <strong>Awards:</strong> #{movie.Awards}
+				p(id="bottom") <strong><i>This movie is rated #{movie.Rated}. Viewer discretion is advised.</i></strong>
+		br
+		div(style="border: 5px solid; margin: auto; width: 25%; text-align:center; padding:10px; background-color: #fff;")
+			if currentUser != "guest" && !(currentUser.watchedMovies.some(watched => watched.Title === movie.Title))
+				h3(style="text-align:center; margin-bottom:-5px") Watched this movie before?
+				p(style="text-align:center;") Add it to your watched list:
+				button(type="button" onclick="addToWatchlist()") Add
+			else if currentUser != "guest" && (currentUser.watchedMovies.some(watched => watched.Title === movie.Title))
+				h3(style="text-align:center; margin-bottom:-5px") This movie is in your watched list
+				p(style="text-align:center;") Write a review for it:
+				a(href="#userreview") #[button(type="button") Review]
+				p(style="text-align:center;") Or remove it from your watched list:
+				button(type="button" onclick='removeMovie("' + movie.Title + '", "' + movie.id + '")') Remove
+			else if currentUser == "guest"
+				h3(style="text-align:center; margin-bottom:-5px") Watched this movie before?
+				p(style="text-align:center;") Login to add it to your watched list:
+				a(href="/signinup.html") #[button(type="button") Login]
+		h1(style="text-align:center;") See similar movies 
+		div#movies
+			if similarMovies.length == 0
+				p There aren't any similar movies to this...
+			each movie in similarMovies 
+				div(class="movieLink")
+					div(style="height: 231px;")
+						a(href="/movies/" + movie._id) #[img(src=movie.Poster style="size: 5%")]
+					br
+					a( href="/movies/" + movie._id) #{movie.Title}
+					br
+		h1(style="text-align:center;") Reviews
+		div#reviews
+			div
+				if rating != -1
+					p(style="text-align: center;") Average rating for <strong>#{movie.Title}</strong> is <strong>#{rating}/10</strong>
+				if reviews.length != 0
+					each review in reviews
+						div#moviereviews
+							p #[a(href="/user/" + review.author.name) <strong>#{review.author.name}</strong>] scored <strong>#{movie.Title}</strong> a #{review.score}/10
+							if review.reviewSummary != ""
+								p "#{review.reviewSummary}"
+							a(href="/reviews/" + review._id) View details
+				else
+					p This movie has no reviews; Be the first to add one!
+			h1(style="text-align:center;") Add a Review
+			div#userreview
+				label(for="txtSum" ) Review Summary: 
+				input(type="text" id="reviewSum" name="txtSum" style="margin-right: 14px; margin-left:3px")
+				label(for="txtScore") Score (-/10): 
+				input(type="text" id="score" name="txtScore" style="margin-left:3px")
+				br
+				br
+				label(for="txtReview") Text Review
+				br
+				textarea(id="txtReview" name="txtReview" rows="10" cols="75" style="margin-top: 10px; margin-bottom:10px; resize:none")
+				br
+				button(type="button" style="margin-right: 10px;" onclick="addReview()") Add Review
+				span(style="font-size:10px") * You need to be logged in to add reviews
+				br
+				br

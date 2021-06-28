@@ -1,0 +1,43 @@
+html 
+    head 
+        include ../partials/headlinks.pug
+        title #{person.name}
+    body 
+        include ../partials/navbar.pug
+        script
+            include ../public/js/profile.js
+        div(style="display:flex; justify-content:center; align-items:center;")
+            h1(style="margin:15; display: inline-block;") <strong>#{person.name}</strong>
+            if currentUser == "guest"
+                button(type="button" style="float: right;" onclick="authenticateAlert()") Follow
+            else if currentUser != "guest" && !currentUser.following.includes(person.name)
+                button(type="button" style="float: right;" onclick='followPerson("' + person.name + '")') Follow
+            else if currentUser != "guest" && currentUser.following.includes(person.name)
+                button(type="button" style="float: right;" onclick='unfollowPerson("' + person.name + '")') Unfollow
+        div(style="display: flex; justify-content:center")
+            div(class="profilecontent")
+                h2 Frequent Collaborators:
+                ul
+                each p in frequentCollabs
+                    li #[a(href="/people/" + p) #{p}]
+                    br
+            div(style="margin:50px;") 
+                h2(style="text-align:center;") Work History: 
+                if person.writer.length > 0
+                    div(class="profilecontent")
+                        h3 Writer of: 
+                        each movie  in person.writer 
+                            a(href="/movies/" + movies[movie]._id) #{movie}
+                            br
+                if person.director.length > 0
+                    div(class="profilecontent")
+                        h3 Director of: 
+                        each movie in person.director
+                            a(href="/movies/" + movies[movie]._id ) #{movie}
+                            br
+                if person.actor.length > 0
+                    div(class="profilecontent")
+                        h3 Actor In: 
+                        each movie in person.actor
+                            a(href="/movies/" + movies[movie]._id) #{movie}
+                            br

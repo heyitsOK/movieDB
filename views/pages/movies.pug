@@ -1,0 +1,28 @@
+html 
+    head 
+        include ../partials/headlinks.pug
+        title #{title} 
+    body 
+        include ../partials/navbar.pug
+        h1(style="text-align:center") #{title}
+        div#movies
+            if movies.length != 0
+                each movie in movies 
+                    div(class="movieLink")
+                        div(style="height: 231px;")
+                            a(href="/movies/" + movie._id) #[img(src=movie.Poster style="size: 5%")]
+                        br
+                        a( href="/movies/" + movie._id) #{movie.Title}
+                        br
+            else
+                h2 Nothing to see here 
+        br
+        div#pagination
+            if page != 1
+                a(href="?page=" + (page-1)) #[button Previous]
+            else 
+                button Previous
+            if movies.length == 24
+                a(href="?page=" + (page+1)) #[button Next]
+            else 
+                button Next

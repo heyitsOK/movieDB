@@ -1,0 +1,78 @@
+html 
+    head 
+        include ../partials/headlinks.pug
+        title #{user.name}
+    body
+        script
+            include ../public/js/profile.js
+        include ../partials/navbar.pug
+        div(style="text-align: center;")
+            h1(style="margin:20px; display: inline-block;") #{user.name}'s profile
+            button(type=button style="position:relative; bottom: 5px; left: 10px;" onclick="signout()") Sign out
+        div(style="display: flex; justify-content:space-evenly")
+            div(class="profilecontent")
+                h2 Account Type:
+                form(action="/user/accountType" method="POST")
+                    if user.accountType == 0
+                        input(type="radio" id="regular" name="accountType" checked="checked" value=0)
+                    else 
+                        input(type="radio" id="regular" name="accountType" value=0)
+                    label(for="regular") Regular
+                    br
+                    if user.accountType == 1
+                        input(type="radio" id="contributing" name="accountType" checked="checked" value=1)
+                    else 
+                        input(type="radio" id="contributing" name="accountType" value=1)
+                    label(for="contributing") Contributing
+                    br
+                    button(type="submit" style="margin:10px;" onclick="sendAlert()") Save 
+            div(class="profilecontent")
+                h2 People you Follow:
+                if user.following.length != 0
+                    each person in user.following
+                        button(type="button" style="margin: 3px; margin-right:5px;" onclick='unfollowPerson("' + person + '")') Unfollow
+                        a(href="/people/" + person) #{person}
+                        br
+                else 
+                    p(style="margin-right: 10px") Go follow some people!
+            div(class="profilecontent")
+                h2 Users you Follow: 
+                if user.userFollowing.length != 0
+                    each profile in user.userFollowing 
+                        button(type="button" style="margin: 3px; margin-right:5px;" onclick='unfollowUser("' + profile + '")') Unfollow
+                        a(href="/user/" + profile) #{profile}
+                        br
+                else 
+                    p(style="margin-right: 10px") Go follow some users!
+            div(class="profilecontent")
+                h2 Movies you Watched: 
+                if (user.watchedMovies != 0)
+                    each movie in user.watchedMovies
+                        button(type="button" style="margin: 3px; margin-right:5px;" onclick='removeMovie("' + movie.Title + '", "' + movie._id + '")') Remove 
+                        a(href="/movies/" + movie._id) #{movie.Title}
+                        br
+                else 
+                    p(style="margin-right: 10px") Go add some movies to your watched list!
+        h1(style="text-align:center;") Notifications
+        if user.notifications.length == 0
+            p(style="text-align:center;") Nothing to see here
+        div#reviews
+            each notification in user.notifications 
+                div#moviereviews
+                    if notification.type == "user"
+                        p #[a(href="/user/" + notification.about) <strong>#{notification.about}</strong>] #{notification.text} #[a(href="/movies/" + notification.movie._id) <strong>#{notification.movie.Title}</strong>]
+                        a(href=notification.link) View Details
+                    if notification.type == "person"
+                        p #[a(href="/people/" + notification.about) <strong>#{notification.about}</strong>] #{notification.text} #[a(href="/movies/" + notification.movie._id) <strong>#{notification.movie.Title}</strong>]
+                        a(href=notification.link) View Details
+        h1(style="text-align:center;") Recommended Movies
+        if recommended.length == 0
+            p(style="text-align:center;") Add some movies to your watched list or write some reviews so we can get an idea of what to recommend to you!
+        div#movies
+            each movie in recommended 
+                div(class="movieLink")
+                    div(style="height: 231px;")
+                        a(href="/movies/" + movie._id) #[img(src=movie.Poster style="size: 5%")]
+                    br
+                    a( href="/movies/" + movie._id) #{movie.Title}
+                    br

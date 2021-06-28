@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Movie Database</title>
+	<link rel="stylesheet" type="text/css" href="../styling/styles.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Lato&family=Quicksand:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div id="navwrapper">
+		<ul id="navbar">
+			<li class="liNavBar"><a href="/" class="aNavBar">Home</a></li>
+			<li class="liNavBar"><a href="/movies" class="aNavBar">Movies</a></li>
+			<li class="liNavBar"><a href="/signinup.html" class="aNavBar">Sign In/Up</a></li>
+			<li class="liNavBar"><a href="/user/self" class="aNavBar">Profile</a></li>
+			<li class="liNavBar"><a href="/contribute.html" class="aNavBar">Contribute</a></li>
+	</div>
+		</ul>
+	<div id="main">
+	<h1>Search Movie Information</h1>
+	<p>Welcome to my movie database! </p>
+	<form action="/movies" method="GET">
+		<input type="search" name="title" id="searchtext" placeholder="Search Movie title" style="margin: 10px;"/><br>
+		<button type="submit" id="search">Search</button>
+		<a href="/advancedsearch.html"><button type="button">Advanced Search</button></a>
+	</form>
+	</div>
+</body>
+</html>

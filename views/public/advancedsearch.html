@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Advanced Search</title>
+	<link rel="stylesheet" type="text/css" href="../styling/styles.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Lato&family=Quicksand:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div id="navwrapper">
+		<ul id="navbar">
+			<li class="liNavBar"><a href="/" class="aNavBar">Home</a></li>
+			<li class="liNavBar"><a href="/movies" class="aNavBar">Movies</a></li>
+			<li class="liNavBar"><a href="/signinup.html" class="aNavBar">Sign In/Up</a></li>
+			<li class="liNavBar"><a href="/user/self" class="aNavBar">Profile</a></li>
+			<li class="liNavBar"><a href="/contribute.html" class="aNavBar">Contribute</a></li>
+
+		</ul>
+	</div>
+	<div id="advancedsearch">
+	<h1>Search Movie Information</h1>
+	<form action="/movies" method="GET">
+        <input type="search" name="title" placeholder="Title"/><br>
+        <input type="search" name="genre" placeholder="Genre"/><br>
+        <input type="search" name="actor" placeholder="Actor"/><br>
+        <button type="submit" >Search</button>
+    </form>
+	</div>
+</body>
+</html>

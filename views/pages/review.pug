@@ -1,0 +1,15 @@
+html
+    head
+        include ../partials/headlinks.pug
+        title Review by #{review.author.name}
+    body 
+        include ../partials/navbar.pug
+        div#reviews
+            h1 Review
+            div#moviereviews
+                p #[a(href="/user/" + review.author.name) <strong>#{review.author.name}</strong>] scored #[a(href="/movies/" + review.movie._id) <strong>#{review.movie.Title}</strong>] a #{review.score}/10
+                if review.reviewSummary != ""
+                    p "#{review.reviewSummary}"
+                if review.textReview != ""
+                    p <strong>Full Review: </strong>
+                    p #{review.textReview}
