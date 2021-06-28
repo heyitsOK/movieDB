@@ -644,7 +644,7 @@ app.post("/reviews", (request, response) => {
 MongoClient.connect("mongodb+srv://omar2134:dmxQcAfyLFLf4eAk@cluster0.rcihm.mongodb.net/movieDB?retryWrites=true&w=majority", function(err, client) {
 	if (err) throw err;
 	
-	db = client.db('project');
+	db = client.db('movieDB');
 
 	app.listen(process.env.PORT || 3000);
 	console.log("Server listening at http://localhost:3000");
