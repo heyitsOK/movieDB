@@ -9,6 +9,7 @@ let users = [{
 	following: ["Elijah Wood", "Robb Wells", "Adam Sandler", "Peter Jackson"], 
 	userFollowing: ["davemckenney", "seanbenjamin"], 
 	watchedMovies: [],
+    reviews: [],
 	notifications: []
 }, {
     name: "davemckenney",
@@ -17,6 +18,7 @@ let users = [{
 	following: ["Elijah Wood", "Sandra Bullock", "Adam Sandler"],
 	userFollowing: ["mromarkhan", "seanbenjamin"], 
 	watchedMovies: [],
+    reviews: [],
 	notifications: []
 }, {
     name: "seanbenjamin",
@@ -25,6 +27,7 @@ let users = [{
 	following: ["Morgan Freeman", "Ashley Judd", "Cary Elwes", "Alex McArthur"], 
 	userFollowing: ["mromarkhan", "davemckenney"], 
 	watchedMovies: [],
+    reviews: [],
 	notifications: []
 }, {
     name: "yizhang",
@@ -33,6 +36,7 @@ let users = [{
 	following: ["Morgan Freeman", "Ashley Judd", "Cary Elwes", "Alex McArthur"], 
 	userFollowing: ["mromarkhan", "davemckenney", "seanbenjamin"], 
 	watchedMovies: [],
+    reviews: [],
 	notifications: []
 }, {
     name: "bruce",
@@ -41,6 +45,7 @@ let users = [{
 	following: ["Morgan Freeman", "Ashley Judd", "Cary Elwes", "Alex McArthur"], 
 	userFollowing: ["mromarkhan", "davemckenney", "seanbenjamin"], 
 	watchedMovies: [],
+    reviews: [],
 	notifications: []
 }, {
     name: "omar",
@@ -49,6 +54,7 @@ let users = [{
 	following: ["Morgan Freeman", "Ashley Judd", "Cary Elwes", "Alex McArthur"], 
 	userFollowing: ["mromarkhan", "davemckenney", "seanbenjamin"], 
 	watchedMovies: [],
+    reviews: [],
 	notifications: []
 }, {
     name: "raahim",
@@ -57,6 +63,7 @@ let users = [{
 	following: ["Morgan Freeman", "Ashley Judd", "Cary Elwes", "Alex McArthur"], 
 	userFollowing: ["mromarkhan", "davemckenney", "seanbenjamin"], 
 	watchedMovies: [],
+    reviews: [],
 	notifications: []
 }, {
     name: "victor",
@@ -65,6 +72,7 @@ let users = [{
 	following: ["Morgan Freeman", "Ashley Judd", "Cary Elwes", "Alex McArthur"], 
 	userFollowing: ["mromarkhan", "davemckenney", "seanbenjamin"], 
 	watchedMovies: [],
+    reviews: [],
 	notifications: []
 }, {
     name: "patrick",
@@ -73,6 +81,7 @@ let users = [{
 	following: ["Morgan Freeman", "Ashley Judd", "Cary Elwes", "Alex McArthur"], 
 	userFollowing: ["mromarkhan", "davemckenney", "seanbenjamin"], 
 	watchedMovies: [],
+    reviews: [],
 	notifications: []
 }, {
     name: "erica",
@@ -81,6 +90,7 @@ let users = [{
 	following: ["Morgan Freeman", "Ashley Judd", "Cary Elwes", "Alex McArthur"], 
 	userFollowing: ["mromarkhan", "davemckenney", "seanbenjamin"], 
 	watchedMovies: [],
+    reviews: [],
 	notifications: []
 }, {
     name: "temitayo",
@@ -89,6 +99,7 @@ let users = [{
 	following: ["Morgan Freeman", "Ashley Judd", "Cary Elwes", "Alex McArthur"], 
 	userFollowing: ["mromarkhan", "davemckenney", "seanbenjamin"], 
 	watchedMovies: [],
+    reviews: [],
 	notifications: []
 }, {
     name: "shriya",
@@ -97,6 +108,7 @@ let users = [{
 	following: ["Morgan Freeman", "Ashley Judd", "Cary Elwes", "Alex McArthur"], 
 	userFollowing: ["mromarkhan", "davemckenney", "seanbenjamin"], 
 	watchedMovies: [],
+    reviews: [],
 	notifications: []
 }, {
     name: "ammar",
@@ -105,6 +117,7 @@ let users = [{
 	following: ["Morgan Freeman", "Ashley Judd", "Cary Elwes", "Alex McArthur"], 
 	userFollowing: ["mromarkhan", "davemckenney", "seanbenjamin"], 
 	watchedMovies: [],
+    reviews: [],
 	notifications: []
 }, {
     name: "wal",
@@ -113,6 +126,7 @@ let users = [{
 	following: ["Morgan Freeman", "Ashley Judd", "Cary Elwes", "Alex McArthur"], 
 	userFollowing: ["mromarkhan", "davemckenney", "seanbenjamin"], 
 	watchedMovies: [],
+    reviews: [],
 	notifications: []
 }]
 
