@@ -56,7 +56,8 @@ The application should be running locally on port 3000 by default (Change port i
 
 The web application is fully functional and hosted via heroku. To demo the web application click the link below
 
-https://obscure-escarpment-62580.herokuapp.com/
+[No longer avaiable] https://obscure-escarpment-62580.herokuapp.com/
+*Heroku no longer offers free dynos
 
 ## Acknowledgements
 
